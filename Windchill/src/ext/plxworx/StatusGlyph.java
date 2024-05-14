@@ -31,8 +31,11 @@ public class StatusGlyph extends DefaultObjectFormProcessor {
         System.out.println("parent part:-" + part.getNumber());
 
         findPrtNo(part);
-
         FormResult formResult = super.doOperation(nmCommandBean, list);
+        //Refresh current page
+        formResult.setNextAction(FormResultAction.REFRESH_CURRENT_PAGE);
+        System.out.println("page refresh....");
+	    
         return formResult;
     }
 
